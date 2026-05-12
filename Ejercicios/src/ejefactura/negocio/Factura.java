@@ -9,8 +9,19 @@ public class Factura {
     public Factura(String numeroPieza, String descripcionPieza, int cantidad, double precioPorArticulo) {
         this.numeroPieza = numeroPieza;
         this.descripcionPieza = descripcionPieza;
-        this.cantidad = (cantidad > 0) ? cantidad : 0;
-        this.precioPorArticulo = (precioPorArticulo > 0.0) ? precioPorArticulo : 0.0;
+
+        // Validación con if-else simple
+        if (cantidad > 0) {
+            this.cantidad = cantidad;
+        } else {
+            this.cantidad = 0;
+        }
+
+        if (precioPorArticulo > 0.0) {
+            this.precioPorArticulo = precioPorArticulo;
+        } else {
+            this.precioPorArticulo = 0.0;
+        }
     }
 
     public void setNumeroPieza(String numeroPieza) { this.numeroPieza = numeroPieza; }
@@ -20,12 +31,20 @@ public class Factura {
     public String getDescripcionPieza() { return descripcionPieza; }
 
     public void setCantidad(int cantidad) {
-        this.cantidad = (cantidad > 0) ? cantidad : 0;
+        if (cantidad > 0) {
+            this.cantidad = cantidad;
+        } else {
+            this.cantidad = 0;
+        }
     }
     public int getCantidad() { return cantidad; }
 
-    public void setPrecioPorArticulo(double precioPorArticulo) {
-        this.precioPorArticulo = (precioPorArticulo > 0.0) ? precioPorArticulo : 0.0;
+    public void setPrecioPorArticulo(double precio) {
+        if (precio > 0.0) {
+            this.precioPorArticulo = precio;
+        } else {
+            this.precioPorArticulo = 0.0;
+        }
     }
     public double getPrecioPorArticulo() { return precioPorArticulo; }
 
